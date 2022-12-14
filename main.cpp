@@ -1,8 +1,16 @@
 #include <iostream>
+#include <thread>
+#include <unistd>
 
-void test()
+void threadTest(const std::string& str)
 {
-    std::cout << "It's a test func." << std::endl;
+    std::thread thread1([str]{
+        while(true)
+        {
+            std::cout << str << std::endl;
+            sleep(1);
+        }
+    )};
 }
 
 int main()
@@ -10,7 +18,7 @@ int main()
     std::cout << "It is a test for git." << std::endl;
     std::cout << "Dose man should love a woman?" << std::endl;
 
-    test();
+    
     
     return 0;
 }
