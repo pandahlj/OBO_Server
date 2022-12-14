@@ -1,12 +1,20 @@
 #include <iostream>
+#include <thread>
+#include <unistd>
 
 bool g_outFlag = true;
 void setOutFlag(bool param){g_outFlag = param;}
 bool getOutFlag(){return g_outFlag;}
 
-void test()
+void threadTest(const std::string& str)
 {
-    std::cout << "It's a test func." << std::endl;
+    std::thread thread1([str]{
+        while(true)
+        {
+            std::cout << str << std::endl;
+            sleep(1);
+        }
+    });
 }
 
 int main()
@@ -21,6 +29,7 @@ int main()
         std::cout << "main thread." << std::endl;
         sleep(1);
     }
+    
     
     return 0;
 }
