@@ -1,5 +1,9 @@
 #include <iostream>
 
+bool g_outFlag = true;
+void setOutFlag(bool param){g_outFlag = param;}
+bool getOutFlag(){return g_outFlag;}
+
 void test()
 {
     std::cout << "It's a test func." << std::endl;
