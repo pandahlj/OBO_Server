@@ -10,7 +10,12 @@ int main()
     std::cout << "It is a test for git." << std::endl;
     std::cout << "Dose man should love a woman?" << std::endl;
 
-    test();
+    while(true)
+    {
+        std::cout << "main thread." << std::endl;
+        sleep(1);
+        setOutFlag(!getOutFlag());
+    }
     
     return 0;
 }
